@@ -23,7 +23,8 @@ const questionsArray = [
 
 // When click start button, timer starts and new question box
 
-let startButton = document.getElementById("start-button");
+const startButton = document.getElementById("start-button");
+const startQuizContainer = document.getElementById("start-container");
 
 function shuffleQuestions () {}
 
@@ -34,7 +35,7 @@ function chooseAnswer () {}
 function changeQuestion () {}
 
 startButton.addEventListener("click", function() {
-    console.log("hi");
+    startQuizContainer.classList.add("hide");;
 });
 
 // remove this question from array 
