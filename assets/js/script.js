@@ -25,6 +25,10 @@ const questionsArray = [
 
 const startButton = document.getElementById("start-button");
 const startQuizContainer = document.getElementById("start-container");
+const questionContainer = document.getElementById("question-container");
+
+let timer = document.getElementById("timer");
+timer = 0
 
 function shuffleQuestions () {}
 
@@ -35,7 +39,11 @@ function chooseAnswer () {}
 function changeQuestion () {}
 
 startButton.addEventListener("click", function() {
-    startQuizContainer.classList.add("hide");;
+    startQuizContainer.classList.add("hide");
+    questionContainer.classList.remove("hide");
 });
+
+// question container if true, backgroung green, then go to next question
+// if false then say wrong and 
 
 // remove this question from array 
