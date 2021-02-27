@@ -1,11 +1,11 @@
-const questions = [
+const questionsArray = [
     {
         question: "Which is NOT a primitive type?",
         answers: [
             {choice: "Number", correct: false},
-            {choice: "Float", correct: true},
+            {choice: "Wire Frame", correct: true},
             {choice: "String", correct: false},
-            {choice: "Object", correct: false}
+            {choice: "Boolean", correct: false}
         ]
     },
     {
@@ -16,7 +16,8 @@ const questions = [
             {choice: "Angular Project IDE", correct: false},
             {choice: "Algorithm Pair Inheritance", correct: false}
         ]
-    }]
+    }
+]
 
 // When page loads, have initial question box
 
@@ -36,11 +37,4 @@ startButton.addEventListener("click", function() {
     console.log("hi");
 });
 
-// let questionBox = {
-//     question: "",
-//     choice1: "",
-//     choice2: "",
-//     choice3: "",
-//     choice4: "",
-//     correctAnswer: ""
-// };
+// remove this question from array 

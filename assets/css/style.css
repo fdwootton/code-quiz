@@ -5,29 +5,34 @@
 
 #high-score-link {
     text-decoration: underline;
+    font-size: 25px;
 }
 
-#question-container {
+.container {
     display: flex;
     width: 700px;
     margin: auto;
-    border: solid 2px black;
     flex-direction: column;
     align-items: center;
-}
-
-#question-header {
-    font-weight: bolder;
-    font-size: 25px;
-    padding: 10px;
-}
-
-#question-choices {
-    padding:10px;
 }
 
 #start-button {
     font-weight: bold;
     padding: 5px;
     margin:10px;
+    text-align: center;
 }
+
+.answer-choice {
+    border: black 2px solid;
+    padding:5px;
+    margin: 5px;
+}
+
+.answer-choice:hover {
+    background-color: lightblue;
+}
+
+/* .hide {
+    display: none;
+} */
