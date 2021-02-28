@@ -1,6 +1,13 @@
 // These are all the questions in the quiz
 const questionsArray = [
     {
+        question: "Which is NOT a primitive type?",
+        choice1: "Number",
+        correct: "Function",
+        choice2: "String",
+        choice3: "Boolean"
+    },
+    {
         question: "API stands for:",
         correct: "Application Programming Interface",
         choice1: "Apple Program Interactive",
@@ -22,13 +29,16 @@ const questionsArray = [
         choice3: "Git Checkout"
     },
     {
-        question: "Variables may NOT be declared with:",
-        choice1: "const",
-        choice2: "let",
-        choice3: "var",
-        correct: "if"
+        question: "Which is the correct JavaScript syntax to print a string?",
+        choice1: "consolelog(Hello World);",
+        choice2: "Console.Log(Hello World);",
+        choice3: "console.log(Hello World);",
+        correct: "console.log('Hello World');"
     }
 ];
+
+
+
 
 // ------------------ GLOBAL VARIABLES ------------------
 
@@ -53,6 +63,10 @@ let currentQuestionIndex = 0;
 let lastQuestionIndex = questionsArray.length - 1;
 
 
+
+
+
+
 // ------------------- FUNCTIONS ------------------------
 
 // This function starts the quiz when start button is clicked
@@ -61,20 +75,40 @@ function startQuiz (){
     questionContainer.classList.remove("hide");
     choicesContainer.classList.remove("hide");
     nextButtonContainer.classList.remove("hide");
-    // timer.innerHTML = "Timer: 75";
+    // set timer
+    // timer = 75, make a timer function?
+    setQuizTimer();
+    shownextQuestion();
 };
+
+function setQuizTimer () {
+    timer = 75;
+    timer.innerHTML = "timer"
+
+}
 
 
 // This function creates the questions of the quiz
 function shownextQuestion () {
     let currentQuestion = questionsArray[currentQuestionIndex];
-    questionContainer.innerHTML = "<h2>" + currentQuestion.question + "</h2>";
-    choiceOne.innerHTML = "<p>" + currentQuestion.choice1 + "</p>";
-    choiceTwo.innerHTML = "<p>" + currentQuestion.choice2 + "</p>";
-    choiceThree.innerHTML = "<p>" + currentQuestion.choice3 + "</p>";
-    correctAnswer.innerHTML = "<p>" + currentQuestion.correct + "</p>";
-    currentQuestionIndex++
+    if (currentQuestionIndex <= questionsArray.length - 1) {
+        questionContainer.innerHTML = "<h2>" + currentQuestion.question + "</h2>";
+        choiceOne.innerHTML = "<p>" + currentQuestion.choice1 + "</p>";
+        choiceTwo.innerHTML = "<p>" + currentQuestion.choice2 + "</p>";
+        choiceThree.innerHTML = "<p>" + currentQuestion.choice3 + "</p>";
+        correctAnswer.innerHTML = "<p>" + currentQuestion.correct + "</p>";
+        currentQuestionIndex++
+    }
+    else if (currentQuestionIndex = questionsArray.length) {
+        questionContainer.innerHTML = "<h2>" + "All Done! Press 'NEXT' to enter your initials and save your score!" + "</h2>";
+        choicesContainer.classList.add("hide");
+        // add anchor to highscore page
+    }
+    else { 
+        prompt("Enter your initials");
+    }  
 };
+
 
 
 // ------------ CLICK EVENTS --------------------
@@ -82,10 +116,19 @@ function shownextQuestion () {
 // When start button is clicked, the first question appears on the screen and timer starts
 startButton.addEventListener("click", startQuiz);
 
+// When next button is clicked, the next question appears or the "Quiz Over" page
 nextButton.addEventListener("click", shownextQuestion);
 
 
+
+
+
+
+
+
 // TO DO:
+
+// Disable next button until answer is selected
 
 // When an answer is selected, time either stays same or decreases, user notified if right/wrong, and next question appears
 
@@ -94,3 +137,4 @@ nextButton.addEventListener("click", shownextQuestion);
 
 
 //High score page pops up with text box and input is saved to local storage
+
