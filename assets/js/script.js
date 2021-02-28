@@ -35,6 +35,7 @@ const startButton = document.getElementById("start-button");
 const startQuizContainer = document.getElementById("start-container");
 const questionContainer = document.getElementById("question-container");
 const choicesContainer = document.getElementById("choices-container");
+const nextButtonContainer = document.getElementById("next-button-container");
 
 
 let timer = document.getElementById("timer");
@@ -53,7 +54,8 @@ function startQuiz (){
     startQuizContainer.classList.add("hide");
     questionContainer.classList.remove("hide");
     choicesContainer.classList.remove("hide");
-    timer.innerHTML = "Timer: 75";
+    nextButtonContainer.classList.remove("hide");
+    // timer.innerHTML = "Timer: 75";
 };
 
 

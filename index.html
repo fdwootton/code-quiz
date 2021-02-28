@@ -23,7 +23,7 @@
         <div class="container" id="start-container">
             <h1>Coding Quiz Challenge</h1>
             <p>Answer the questions in the given time.  If you get an answer wrong, you lose points. See if you can beat the high score!</p>
-            <button id="start-button">START</button>
+            <button class="button" id="start-button">START</button>
         </div>
 
 
@@ -31,12 +31,19 @@
             <h2 id="question-header">Which is NOT a primitive type?</h2>
         </div>
         
+
         <div class=" container hide" id="choices-container">
             <div data-index="0" class="answer-choice" id="choice1">Number</div>
             <div data-index="1" class="answer-choice" id="correct-answer">Function</div>
             <div data-index="2" class="answer-choice" id="choice2">String</div>
             <div data-index="3" class="answer-choice" id="choice3">Boolean</div>
         </div>
+
+        <div class="container hide" id="next-button-container">
+            <button class="button" id="next-button">NEXT</button>
+        </div>
+
+        
         
         <script src="./assets/js/script.js"></script>
         

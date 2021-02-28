@@ -16,11 +16,13 @@
     align-items: center;
 }
 
-#start-button {
+.button {
     font-weight: bold;
     padding: 5px;
     margin:10px;
     text-align: center;
+    background-color: rgb(119, 119, 240);
+    color:white;
 }
 
 .answer-choice {
@@ -30,7 +32,7 @@
 }
 
 .answer-choice:hover {
-    background-color: lightblue;
+    background-color: lightskyblue;
 }
 
 .hide {
