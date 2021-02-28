@@ -46,8 +46,6 @@ const startButton = document.getElementById("start-button");
 const startQuizContainer = document.getElementById("start-container");
 const questionContainer = document.getElementById("question-container");
 const choicesContainer = document.getElementById("choices-container");
-// const nextButtonContainer = document.getElementById("next-button-container");
-// const nextButton = document.getElementById("next-button");
 const initialsInputForm = document.getElementById("initials-input-form");
 
 let allChoices = document.getElementsByClassName("answer-choice");
@@ -70,7 +68,7 @@ let currentQuestionIndex = 0;
 
 // ------------------- FUNCTIONS ------------------------
 
-
+// This doesn't work yet
 function setQuizTimer () {
     timer = 75;
     timer.innerHTML = "timer"
@@ -81,7 +79,6 @@ function startQuiz (){
     startQuizContainer.classList.add("hide");
     questionContainer.classList.remove("hide");
     choicesContainer.classList.remove("hide");
-    // nextButtonContainer.classList.remove("hide");
     // set timer
     // timer = 75, make a timer function?
     setQuizTimer();
@@ -112,15 +109,12 @@ function renderNextQuestion () {
     }
     else if (currentQuestionIndex = questionsArray.length) {
         questionContainer.innerHTML = "<h2>" + "ALL DONE! YOUR SCORE IS: " + "</h2>" + "<br/>" + "<h3>" + "Enter your initials below to save score:" + "</h3>";
-        nextButtonContainer.classList.add("hide");
         choicesContainer.classList.add("hide");
         initialsInputForm.classList.remove("hide");
 
-        // add anchor to highscore page when submit initials
+        // add anchor to highscore page when submit initials?
     } 
 };
-
-
 
 
 
