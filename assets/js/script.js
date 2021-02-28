@@ -46,11 +46,11 @@ const startButton = document.getElementById("start-button");
 const startQuizContainer = document.getElementById("start-container");
 const questionContainer = document.getElementById("question-container");
 const choicesContainer = document.getElementById("choices-container");
-const nextButtonContainer = document.getElementById("next-button-container");
-const nextButton = document.getElementById("next-button");
+// const nextButtonContainer = document.getElementById("next-button-container");
+// const nextButton = document.getElementById("next-button");
 const initialsInputForm = document.getElementById("initials-input-form");
 
-let allChoices = document.getElementsByClassName("answer-choices");
+let allChoices = document.getElementsByClassName("answer-choice");
 let choiceOne = document.getElementById("choice1");
 let choiceTwo = document.getElementById("choice2");
 let choiceThree = document.getElementById("choice3");
@@ -60,7 +60,7 @@ let correctAnswer = document.getElementById("correct-answer");
 let timer = document.getElementById("timer");
 timer = 0
 
-// This is  the first question in the array
+// This is the first question in the array
 let currentQuestionIndex = 0;
 
 
@@ -70,27 +70,37 @@ let currentQuestionIndex = 0;
 
 // ------------------- FUNCTIONS ------------------------
 
+
+function setQuizTimer () {
+    timer = 75;
+    timer.innerHTML = "timer"
+};
+
 // This function starts the quiz when start button is clicked
 function startQuiz (){
     startQuizContainer.classList.add("hide");
     questionContainer.classList.remove("hide");
     choicesContainer.classList.remove("hide");
-    nextButtonContainer.classList.remove("hide");
+    // nextButtonContainer.classList.remove("hide");
     // set timer
     // timer = 75, make a timer function?
     setQuizTimer();
-    shownextQuestion();
+    renderNextQuestion();
 };
 
-
-function setQuizTimer () {
-    timer = 75;
-    timer.innerHTML = "timer"
+function handleQuizClick (event) {
+    if (event.target.getAttribute("class") != "answer-choice") {
+        return;
+    }
+    else if (event.target.getAttribute("class") == "answer-choice" && event.target.getAttribute("id") == "correct-answer") {
+        renderNextQuestion();
+    }
 }
 
 
+
 // This function creates the questions of the quiz
-function shownextQuestion () {
+function renderNextQuestion () {
     let currentQuestion = questionsArray[currentQuestionIndex];
     if (currentQuestionIndex <= questionsArray.length - 1) {
         questionContainer.innerHTML = "<h2>" + currentQuestion.question + "</h2>";
@@ -120,8 +130,9 @@ function shownextQuestion () {
 startButton.addEventListener("click", startQuiz);
 
 // When next button is clicked, the next question appears or the "Quiz Over" page
-nextButton.addEventListener("click", shownextQuestion);
+// nextButton.addEventListener("click", shownextQuestion);
 
+choicesContainer.addEventListener("click", handleQuizClick);
 
 
 
@@ -139,4 +150,3 @@ nextButton.addEventListener("click", shownextQuestion);
 //link high score page to submit button and high score link
 
 // Save score to local storage
-
