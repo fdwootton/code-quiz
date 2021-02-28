@@ -1,13 +1,6 @@
 // These are all the questions in the quiz
 const questionsArray = [
     {
-        question: "Which is NOT a primitive type?",
-        choice1: "Number",
-        correct: "Wire Frame",
-        choice2: "String",
-        choice3: "Boolean"
-    },
-    {
         question: "API stands for:",
         correct: "Application Programming Interface",
         choice1: "Apple Program Interactive",
@@ -37,38 +30,51 @@ const questionsArray = [
     }
 ];
 
-// When page loads, have initial question box
-
-// When click start button, timer starts and new question box
 
 const startButton = document.getElementById("start-button");
 const startQuizContainer = document.getElementById("start-container");
 const questionContainer = document.getElementById("question-container");
+const choicesContainer = document.getElementById("choices-container");
 
-let allChoices = document.getElementsByClassName("answer-choice");
 
 let timer = document.getElementById("timer");
 timer = 0
 
-function shuffleQuestions () {}
+// This is the index of the first question on the page
+let currentQuestionIndex = 0;
 
-function startQuiz () {}
+// This is the index of the last question
+let lastQuestionIndex = questionsArray.length - 1;
 
-function chooseAnswer () {}
 
-function changeQuestion () {}
 
-startButton.addEventListener("click", function() {
+// This function starts the quiz when start button is clicked
+function startQuiz (){
     startQuizContainer.classList.add("hide");
     questionContainer.classList.remove("hide");
-});
-
-allChoices.addEventListener("click", function () {
-    console.log("hello");
-})
+    choicesContainer.classList.remove("hide");
+    timer.innerHTML = "Timer: 75";
+};
 
 
-// question container if true, backgroung green, then go to next question
-// if false then say wrong and 
+// This function creates the questions of the quiz
+function nextQuestion () {
+    let currentQuestion = questionsArray[currentQuestionIndex];
+    questionContainer.innerHTML = "<p>"+ currentQuestion.question +"</p>";
+    questionContainer.innerHTML = currentQuestion.choice1;
+    choiceTwo.innerHTML = currentQuestion.choice2;
+    choiceThree.innerHTML = currentQuestion.choice3;
+    correctAnswer.innerHTML = currentQuestion.correct;
+};
 
-// remove this question from array 
+
+// When start button is clicked, the first question appears on the screen and timer starts
+startButton.addEventListener("click", startQuiz);
+
+// When an answer is selected, time either stays same or decreases, user notified if right/wrong, and next question appears
+
+
+//When timer is equal to zero, quiz stops and high score will be equal to the time left
+
+
+//High score page pops up with text box and input is saved to local storage
