@@ -25,6 +25,10 @@
     color:white;
 }
 
+.button:hover {
+    opacity: 80%;
+}
+
 .answer-choice {
     border: black 2px solid;
     padding:5px;
