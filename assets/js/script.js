@@ -55,8 +55,10 @@ let choiceThree = document.getElementById("choice3");
 let correctAnswer = document.getElementById("correct-answer");
 
 
-let timer = document.getElementById("timer");
-timer = 0
+const timer = document.getElementById("timer");
+let gameClock = 75;
+let timerID;
+
 
 // This is the first question in the array
 let currentQuestionIndex = 0;
@@ -70,17 +72,20 @@ let currentQuestionIndex = 0;
 
 // This doesn't work yet
 function setQuizTimer () {
-    timer = 75;
-    timer.innerHTML = "timer"
+    timer.textContent = gameClock;
 };
+
+function countdown () {
+    gameClock--;
+    setQuizTimer();
+}
 
 // This function starts the quiz when start button is clicked
 function startQuiz (){
     startQuizContainer.classList.add("hide");
     questionContainer.classList.remove("hide");
     choicesContainer.classList.remove("hide");
-    // set timer
-    // timer = 75, make a timer function?
+    timerID = setInterval(countdown, 1000);
     setQuizTimer();
     renderNextQuestion();
 };
@@ -101,10 +106,10 @@ function renderNextQuestion () {
     let currentQuestion = questionsArray[currentQuestionIndex];
     if (currentQuestionIndex <= questionsArray.length - 1) {
         questionContainer.innerHTML = "<h2>" + currentQuestion.question + "</h2>";
-        choiceOne.innerHTML = "<p>" + currentQuestion.choice1 + "</p>";
-        choiceTwo.innerHTML = "<p>" + currentQuestion.choice2 + "</p>";
-        choiceThree.innerHTML = "<p>" + currentQuestion.choice3 + "</p>";
-        correctAnswer.innerHTML = "<p>" + currentQuestion.correct + "</p>";
+        choiceOne.textContent = currentQuestion.choice1;
+        choiceTwo.textContent = currentQuestion.choice2;
+        choiceThree.textContent = currentQuestion.choice3;
+        correctAnswer.textContent = currentQuestion.correct;
         currentQuestionIndex++
     }
     else if (currentQuestionIndex = questionsArray.length) {
