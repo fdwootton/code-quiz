@@ -48,10 +48,12 @@ const questionContainer = document.getElementById("question-container");
 const choicesContainer = document.getElementById("choices-container");
 const nextButtonContainer = document.getElementById("next-button-container");
 const nextButton = document.getElementById("next-button");
+const initialsInputForm = document.getElementById("initials-input-form");
 let choiceOne = document.getElementById("choice1");
 let choiceTwo = document.getElementById("choice2");
 let choiceThree = document.getElementById("choice3");
 let correctAnswer = document.getElementById("correct-answer");
+
 
 let timer = document.getElementById("timer");
 timer = 0
@@ -61,7 +63,6 @@ let currentQuestionIndex = 0;
 
 // This is the last question in the array
 let lastQuestionIndex = questionsArray.length - 1;
-
 
 
 
@@ -100,13 +101,13 @@ function shownextQuestion () {
         currentQuestionIndex++
     }
     else if (currentQuestionIndex = questionsArray.length) {
-        questionContainer.innerHTML = "<h2>" + "All Done! Press 'NEXT' to enter your initials and save your score!" + "</h2>";
+        questionContainer.innerHTML = "<h2>" + "ALL DONE! YOUR SCORE IS: " + "</h2>" + "<br/>" + "<h3>" + "Enter your initials below to save score:" + "</h3>";
+        nextButtonContainer.classList.add("hide");
         choicesContainer.classList.add("hide");
+        initialsInputForm.classList.remove("hide");
+
         // add anchor to highscore page
-    }
-    else { 
-        prompt("Enter your initials");
-    }  
+    } 
 };
 
 
