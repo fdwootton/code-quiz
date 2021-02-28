@@ -49,6 +49,8 @@ const choicesContainer = document.getElementById("choices-container");
 const nextButtonContainer = document.getElementById("next-button-container");
 const nextButton = document.getElementById("next-button");
 const initialsInputForm = document.getElementById("initials-input-form");
+
+let allChoices = document.getElementsByClassName("answer-choices");
 let choiceOne = document.getElementById("choice1");
 let choiceTwo = document.getElementById("choice2");
 let choiceThree = document.getElementById("choice3");
@@ -61,8 +63,6 @@ timer = 0
 // This is  the first question in the array
 let currentQuestionIndex = 0;
 
-// This is the last question in the array
-let lastQuestionIndex = questionsArray.length - 1;
 
 
 
@@ -82,10 +82,10 @@ function startQuiz (){
     shownextQuestion();
 };
 
+
 function setQuizTimer () {
     timer = 75;
     timer.innerHTML = "timer"
-
 }
 
 
@@ -106,9 +106,11 @@ function shownextQuestion () {
         choicesContainer.classList.add("hide");
         initialsInputForm.classList.remove("hide");
 
-        // add anchor to highscore page
+        // add anchor to highscore page when submit initials
     } 
 };
+
+
 
 
 
@@ -126,16 +128,15 @@ nextButton.addEventListener("click", shownextQuestion);
 
 
 
-
 // TO DO:
 
 // Disable next button until answer is selected
 
 // When an answer is selected, time either stays same or decreases, user notified if right/wrong, and next question appears
 
-
 //When timer is equal to zero, quiz stops and high score will be equal to the time left
 
+//link high score page to submit button and high score link
 
-//High score page pops up with text box and input is saved to local storage
+// Save score to local storage
 
