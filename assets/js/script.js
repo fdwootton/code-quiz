@@ -128,7 +128,7 @@ function renderNextQuestion () {
         choiceTwo.textContent = currentQuestion.choice2;
         choiceThree.textContent = currentQuestion.choice3;
         correctAnswer.textContent = currentQuestion.correct;
-        currentQuestionIndex++
+        currentQuestionIndex++;
     }
     else if (currentQuestionIndex = questionsArray.length) {
         questionContainer.innerHTML = "<h2>" + "ALL DONE! YOUR SCORE IS: " + gameClock + "</h2>" + "<br/>" + "<h3>" + "Enter your initials below to save score:" + "</h3>";
@@ -153,7 +153,8 @@ choicesContainer.addEventListener("click", handleQuizClick);
 
 submitButton.addEventListener("click", function(event) {
     event.preventDefault();
-    localStorage.setItem(userInput.value, gameClock);
+    let score = {name: userInput, score: gameClock};
+    localStorage.setItem("score", score);
     window.location.href="./assets/html/highscore.html"
 })
 
