@@ -22,18 +22,18 @@ const questionsArray = [
         choice3: "box model"
     },
     {
-        question: "Which Git command uploads local repository content to a remote repository?",
+        question: "Which Git command uploads local content to a remote repository?",
         choice1: "Git Pull",
         choice2: "Git Status",
         correct: "Git Push",
         choice3: "Git Checkout"
     },
     {
-        question: "Which tag is used to anchor a link to html?",
+        question: "Which tag is used to link JavaScript to html?",
         choice1: "<link>",
-        choice2: "<br/>",
+        choice2: "<href>",
         choice3: "<anchor>",
-        correct: "<a>"
+        correct: "<script>"
     }
 ];
 
@@ -153,6 +153,8 @@ choicesContainer.addEventListener("click", handleQuizClick);
 
 
 // TO DO:
+
+// Make wrong answer red, or say wrong
 
 // When an answer is selected, time either stays same or decreases, user notified if right/wrong, and next question appears
 
