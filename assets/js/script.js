@@ -64,6 +64,9 @@ let timerID;
 let currentQuestionIndex = 0;
 
 
+let userInput = document.getElementById("initials-input").value;
+let submitButton = document.getElementById("submit-score");
+
 
 
 
@@ -146,6 +149,13 @@ startButton.addEventListener("click", startQuiz);
 // nextButton.addEventListener("click", shownextQuestion);
 
 choicesContainer.addEventListener("click", handleQuizClick);
+
+
+submitButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    localStorage.setItem(userInput.value, gameClock);
+    window.location.href="./assets/html/highscore.html"
+})
 
 
 
