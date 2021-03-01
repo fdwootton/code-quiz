@@ -29,11 +29,11 @@ const questionsArray = [
         choice3: "Git Checkout"
     },
     {
-        question: "Which is the correct JavaScript syntax to print a string?",
-        choice1: "consolelog(Hello World);",
-        choice2: "Console.Log(Hello World);",
-        choice3: "console.log(Hello World);",
-        correct: "console.log('Hello World');"
+        question: "Which tag is used to anchor a link to html?",
+        choice1: "<link>",
+        choice2: "<br/>",
+        choice3: "<anchor>",
+        correct: "<a>"
     }
 ];
 
@@ -79,10 +79,15 @@ function countdown () {
     if (gameClock <= 0) {
         clearInterval(timerID);
         gameClock = 0; 
+        questionContainer.innerHTML = "<h2>" + "ALL DONE! YOUR SCORE IS: " + gameClock + "</h2>" + "<br/>" + "<h3>" + "Enter your initials below to save score:" + "</h3>";
+        choicesContainer.classList.add("hide");
+        initialsInputForm.classList.remove("hide");
+        clearInterval(timerID);
         }
     setQuizTimer();
 }
 
+// This deducts 10 seconds from the game clock when the user gets an answer wrong
 function timePenalty () {
     gameClock -= 10;
 }
@@ -98,11 +103,11 @@ function startQuiz (){
 };
 
 function handleQuizClick (event) {
-    if (event.target.getAttribute("class") != "answer-choice") {
-        return;
-    }
-    else if (event.target.getAttribute("class") == "answer-choice" && event.target.getAttribute("id") == "correct-answer") {
+    if (event.target.getAttribute("class") == "answer-choice" && event.target.getAttribute("id") == "correct-answer") {
         renderNextQuestion();
+    }
+    else if (event.target.getAttribute("class") != "answer-choice") {
+        return;
     }
     else {
         timePenalty();
@@ -123,11 +128,10 @@ function renderNextQuestion () {
         currentQuestionIndex++
     }
     else if (currentQuestionIndex = questionsArray.length) {
-        questionContainer.innerHTML = "<h2>" + "ALL DONE! YOUR SCORE IS: " + "</h2>" + "<br/>" + "<h3>" + "Enter your initials below to save score:" + "</h3>";
+        questionContainer.innerHTML = "<h2>" + "ALL DONE! YOUR SCORE IS: " + gameClock + "</h2>" + "<br/>" + "<h3>" + "Enter your initials below to save score:" + "</h3>";
         choicesContainer.classList.add("hide");
         initialsInputForm.classList.remove("hide");
-
-        // add anchor to highscore page when submit initials?
+        clearInterval(timerID);
     } 
 };
 
@@ -149,8 +153,6 @@ choicesContainer.addEventListener("click", handleQuizClick);
 
 
 // TO DO:
-
-// Disable next button until answer is selected
 
 // When an answer is selected, time either stays same or decreases, user notified if right/wrong, and next question appears
 

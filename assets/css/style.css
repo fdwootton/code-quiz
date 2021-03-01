@@ -43,3 +43,7 @@
 .hide {
     display: none;
 }
+
+#timer {
+    font-size: 40px;
+}
