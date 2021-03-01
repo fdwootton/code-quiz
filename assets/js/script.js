@@ -63,8 +63,6 @@ let timerID;
 // This is the first question in the array
 let currentQuestionIndex = 0;
 
-
-let userInput = document.getElementById("initials-input").value;
 let submitButton = document.getElementById("submit-score");
 
 
@@ -153,8 +151,9 @@ choicesContainer.addEventListener("click", handleQuizClick);
 
 submitButton.addEventListener("click", function(event) {
     event.preventDefault();
+    let userInput = document.getElementById("user-input").value;
     let score = {name: userInput, score: gameClock};
-    localStorage.setItem("score", score);
+    localStorage.setItem("Score", JSON.stringify(score));
     window.location.href="./assets/html/highscore.html"
 })
 
@@ -167,10 +166,5 @@ submitButton.addEventListener("click", function(event) {
 
 // Make wrong answer red, or say wrong
 
-// When an answer is selected, time either stays same or decreases, user notified if right/wrong, and next question appears
-
-//When timer is equal to zero, quiz stops and high score will be equal to the time left
-
-//link high score page to submit button and high score link
 
 // Save score to local storage
