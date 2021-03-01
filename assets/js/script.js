@@ -70,14 +70,21 @@ let currentQuestionIndex = 0;
 
 // ------------------- FUNCTIONS ------------------------
 
-// This doesn't work yet
 function setQuizTimer () {
     timer.textContent = gameClock;
 };
 
 function countdown () {
     gameClock--;
+    if (gameClock <= 0) {
+        clearInterval(timerID);
+        gameClock = 0; 
+        }
     setQuizTimer();
+}
+
+function timePenalty () {
+    gameClock -= 10;
 }
 
 // This function starts the quiz when start button is clicked
@@ -96,6 +103,9 @@ function handleQuizClick (event) {
     }
     else if (event.target.getAttribute("class") == "answer-choice" && event.target.getAttribute("id") == "correct-answer") {
         renderNextQuestion();
+    }
+    else {
+        timePenalty();
     }
 }
 
