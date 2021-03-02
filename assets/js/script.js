@@ -166,5 +166,4 @@ submitButton.addEventListener("click", function(event) {
 
 // Make wrong answer red, or say wrong
 
-
 // Save score to local storage

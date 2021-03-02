@@ -5,3 +5,4 @@ clearScoreButton.addEventListener("click", function(event) {
     event.preventDefault();
     localStorage.clear();
 });
+
