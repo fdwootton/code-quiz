@@ -86,12 +86,12 @@ function countdown () {
         clearInterval(timerID);
         }
     setQuizTimer();
-}
+};
 
 // This deducts 10 seconds from the game clock when the user gets an answer wrong
 function timePenalty () {
     gameClock -= 10;
-}
+};
 
 // This function starts the quiz when start button is clicked
 function startQuiz (){
@@ -113,7 +113,7 @@ function handleQuizClick (event) {
     else {
         timePenalty();
     }
-}
+};
 
 
 
@@ -143,19 +143,20 @@ function renderNextQuestion () {
 // When start button is clicked, the first question appears on the screen and timer starts
 startButton.addEventListener("click", startQuiz);
 
-// When next button is clicked, the next question appears or the "Quiz Over" page
-// nextButton.addEventListener("click", shownextQuestion);
 
+// This handles what happens when right/wrong answer is clicked
 choicesContainer.addEventListener("click", handleQuizClick);
 
 
+// When submit button is clicked, users input is saved to local storage and user is redirected to high score page
 submitButton.addEventListener("click", function(event) {
     event.preventDefault();
     let userInput = document.getElementById("user-input").value;
-    let score = {name: userInput, score: gameClock};
-    localStorage.setItem("Score", JSON.stringify(score));
+    let scores = {name: userInput, score: gameClock};
+    let scoresArray = "[]";
+    localStorage.setItem("Score", JSON.stringify(scores));
     window.location.href="./assets/html/highscore.html"
-})
+});
 
 
 
@@ -167,3 +168,7 @@ submitButton.addEventListener("click", function(event) {
 // Make wrong answer red, or say wrong
 
 // Save score to local storage
+
+// Shuffle choices
+
+// Add styling
