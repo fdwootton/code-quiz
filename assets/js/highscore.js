@@ -1,7 +1,7 @@
 let scoreList = document.getElementById("score-list");
 
 function addNewScore () {
-    let newScore = JSON.parse(localStorage.getItem("Score"));
+    let newScore = JSON.parse(localStorage.getItem("scores"));
     let li = document.createElement('li')
     li.textContent = newScore
     scoreList.appendChild(li)
@@ -9,15 +9,11 @@ function addNewScore () {
 
 addNewScore();
 
-let clearScoreButton = document.getElementById("clear-score-button");
 
+let clearScoreButton = document.getElementById("clear-score-button");
 
 clearScoreButton.addEventListener("click", function(event) {
     event.preventDefault();
     localStorage.clear();
-    scoreList.removeChild(li);
+    document.body.removeChild(scoreList);
 });
-
-// add function that puts local storage on page 
-
-// call function
