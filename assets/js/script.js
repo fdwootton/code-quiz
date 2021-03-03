@@ -152,9 +152,19 @@ choicesContainer.addEventListener("click", handleQuizClick);
 submitButton.addEventListener("click", function(event) {
     event.preventDefault();
     let userInput = document.getElementById("user-input").value;
-    let scores = {name: userInput, score: gameClock};
-    let scoresArray = "[]";
-    localStorage.setItem("Score", JSON.stringify(scores));
+    let newScore = {name: userInput, score: gameClock};
+    let storedItems = JSON.parse(localStorage.getItem("scores"));
+
+    if (storedItems){
+        storedItems.push(newScore)
+    }
+
+    else {
+        storedItems = [];
+        storedItems.push(newScore);
+    }
+
+    localStorage.setItem("scores", JSON.stringify(storedItems));
     window.location.href="./assets/html/highscore.html"
 });
 
