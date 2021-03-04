@@ -167,18 +167,3 @@ submitButton.addEventListener("click", function(event) {
     localStorage.setItem("scores", JSON.stringify(storedItems));
     window.location.href="./assets/html/highscore.html"
 });
-
-
-
-
-
-
-// TO DO:
-
-// Make wrong answer red, or say wrong
-
-// Save score to local storage
-
-// Shuffle choices
-
-// Add styling

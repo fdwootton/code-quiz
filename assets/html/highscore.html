@@ -8,16 +8,32 @@
 </head>
 <body>
     
-    <h1 style="text-align: center; margin-top: 100px;">High Scores</h1>
+    <h1 style="text-align: center; margin-top: 100px; text-decoration: underline;">High Scores</h1>
 
     <li id="score-list" style="display: flex; width: 100px; margin: auto; justify-content: center; list-style-type: none;"></li>
 
     <div class="button-container" style="display: flex; justify-content: center; margin-top: 100px;">
+
         <a href='../../index.html'>
-            <button style="margin: 10px;">Play Again</button>
+            <button style="margin: 10px;
+            font-weight: bold;
+            padding: 5px;
+            margin:10px;
+            text-align: center;
+            background-color: rgb(119, 119, 240);
+            color:white;">
+            Go Back
+        </button>
         </a>
 
-        <button id="clear-score-button" style="margin: 10px;">Clear Scores</button>
+        <button id="clear-score-button" style="margin: 10px; font-weight: bold;
+        padding: 5px;
+        margin:10px;
+        text-align: center;
+        background-color: rgb(119, 119, 240);
+        color:white;">
+        Clear Scores</button>
+        
     </div>
 
     <script src="../js/highscore.js"></script>

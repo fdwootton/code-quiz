@@ -5,9 +5,9 @@ allScores = JSON.parse(allScores);
 
 function addNewScore () {
     for (var i=0; i<allScores.length; i++) {
-        let li = document.createElement("div");
+        let li = document.createElement("li");
         li.textContent = allScores[i].name + "---" + allScores[i].score;
-        scoreList.appendChild(li)
+        scoreList.appendChild(li);
     }  
 };
 

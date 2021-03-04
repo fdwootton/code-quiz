@@ -17,6 +17,10 @@
     align-items: center;
 }
 
+p {
+    font-size: 20px;
+}
+
 .button {
     font-weight: bold;
     padding: 5px;
