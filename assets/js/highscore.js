@@ -1,10 +1,14 @@
 let scoreList = document.getElementById("score-list");
 
+let allScores = localStorage.getItem("scores");
+allScores = JSON.parse(allScores);
+
 function addNewScore () {
-    let newScore = JSON.parse(localStorage.getItem("scores"));
-    let li = document.createElement('li')
-    li.textContent = newScore
-    scoreList.appendChild(li)
+    for (var i=0; i<allScores.length; i++) {
+        let li = document.createElement("div");
+        li.textContent = allScores[i].name + "---" + allScores[i].score;
+        scoreList.appendChild(li)
+    }  
 };
 
 addNewScore();
