@@ -4,7 +4,7 @@ This application is a quiz built using CSS, JavaScript, and the functionality of
 
 # Project Status
 
-This quiz is a work in progress. There are still a few bugs that need to be worked out. The high scores page does not present each new score on a new line. The multiple choice options are not randomly shuffled. The quiz will be updated and improved as I continue to develop my programming skills.
+This quiz is a work in progress. There are still bugs that need to be fixed. The high scores page does not present each new score on a new line. The multiple choice options are not randomly shuffled. This quiz will be updated as I continue to improve my programming skills.
 
 
 [Coding Quiz](https://fdwootton.github.io/coding-quiz/)
